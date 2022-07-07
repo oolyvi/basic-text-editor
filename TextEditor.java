@@ -49,17 +49,17 @@ public class TextEditor extends JFrame implements ActionListener {
 		this.setTitle("Text Editor");
 		this.setSize(500, 500);
 		this.setLayout(new FlowLayout());
-		this.setLocationRelativeTo(null);    //run edende ekran ortasinda baslayir
+		this.setLocationRelativeTo(null);   
 		
 		//text area
 		textArea = new JTextArea();
-		textArea.setLineWrap(true);          //diger setre kecirdir
-		textArea.setWrapStyleWord(true);     //diger setre sozu kecirir
+		textArea.setLineWrap(true);          
+		textArea.setWrapStyleWord(true);     
 		textArea.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		//scroll pane
 		scrollPane = new JScrollPane(textArea);              
-		scrollPane.setPreferredSize(new Dimension(450, 450));  //bunu scrollPane'de etdik deye textArea'dakini sildik
+		scrollPane.setPreferredSize(new Dimension(450, 450));  
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		//font label
@@ -86,18 +86,18 @@ public class TextEditor extends JFrame implements ActionListener {
 		
 		//font chooser combo box
 		fontBox = new JComboBox(fonts);
-		fontBox.addActionListener(this);    //yuxarida implement oluubdur deye
+		fontBox.addActionListener(this);    
 		fontBox.setSelectedItem("Arial");   //default font
 		
 		//menu bar
-		menuBar = new JMenuBar();        //menu bar yaradilir
-		fileMenu = new JMenu("File");    //icine file adinda menu atilir
+		menuBar = new JMenuBar();        
+		fileMenu = new JMenu("File");    
 		openItem = new JMenuItem("Open");
-		saveItem = new JMenuItem("Save");   //menyu icindeki item'lari yaratdiq
+		saveItem = new JMenuItem("Save");  
 		exitItem = new JMenuItem("Exit");
 		
 		openItem.addActionListener(this);
-		saveItem.addActionListener(this);     //actionListener add edib asagida yaziriq
+		saveItem.addActionListener(this);     
 		exitItem.addActionListener(this);
 		
 		fileMenu.add(openItem);
@@ -105,7 +105,7 @@ public class TextEditor extends JFrame implements ActionListener {
 		fileMenu.add(exitItem);
 		menuBar.add(fileMenu);
 		
-		////////////////////
+		///////////////////////////////
 		
 		
 		//frame adding	
@@ -143,7 +143,7 @@ public class TextEditor extends JFrame implements ActionListener {
 			
 			int response = fileChooser.showOpenDialog(null);
 			
-			if (response == JFileChooser.APPROVE_OPTION) {     //yes kimi				
+			if (response == JFileChooser.APPROVE_OPTION) {     			
 				File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 				Scanner fileIn = null;
 				
@@ -167,13 +167,13 @@ public class TextEditor extends JFrame implements ActionListener {
 		//saveItem
 		if (e.getSource() == saveItem) {
 			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setCurrentDirectory(new File("."));   //. proj foldere atir save edende
+			fileChooser.setCurrentDirectory(new File("."));   
 			
 			int response = fileChooser.showSaveDialog(null);
 			
-			if (response == JFileChooser.APPROVE_OPTION) {    //yes kimi
+			if (response == JFileChooser.APPROVE_OPTION) {    
 				File file;
-				PrintWriter fileOut = null;                          //text formatina cevirir
+				PrintWriter fileOut = null;                          
 				
 				file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 				try {
